@@ -29,8 +29,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
+	implementation("org.modelmapper:modelmapper:3.1.1")
+	implementation("org.jetbrains.kotlin:kotlin-maven-lombok:1.9.22")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
