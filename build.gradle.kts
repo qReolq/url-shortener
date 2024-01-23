@@ -31,6 +31,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.modelmapper:modelmapper:3.1.1")
 	implementation("org.jetbrains.kotlin:kotlin-maven-lombok:1.9.22")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
