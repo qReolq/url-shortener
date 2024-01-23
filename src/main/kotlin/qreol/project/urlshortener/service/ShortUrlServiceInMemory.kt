@@ -4,11 +4,12 @@ import org.springframework.stereotype.Service
 import qreol.project.urlshortener.model.ShortUrl
 import qreol.project.urlshortener.repository.ShortUrlRepository
 import qreol.project.urlshortener.util.RandomIdGenerator
+import qreol.project.urlshortener.util.UrlShortener
 
 @Service
 class ShortUrlServiceInMemory(
     private val shortUrlRepository: ShortUrlRepository,
-    private val randomIdGenerator: RandomIdGenerator
+    private val urlShortener: UrlShortener
 ) : ShortUrlService {
 
     override fun getFullUrl(id: String): ShortUrl {
@@ -16,9 +17,7 @@ class ShortUrlServiceInMemory(
     }
 
     override fun shortenUrl(fullUrl: String): ShortUrl {
-        val randomId = randomIdGenerator.generateUniqueId()
-        val shortUrl = ShortUrl(randomId, fullUrl)
-
+        val shortUrl = urlShortener.shorten(fullUrl)
         shortUrlRepository.save(shortUrl)
 
         return shortUrl
