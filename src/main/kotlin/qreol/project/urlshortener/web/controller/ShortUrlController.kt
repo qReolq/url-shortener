@@ -1,14 +1,17 @@
 package qreol.project.urlshortener.web.controller
 
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.web.bind.annotation.*
 import qreol.project.urlshortener.repository.mapper.UrlMapper
 import qreol.project.urlshortener.service.ShortUrlService
+import qreol.project.urlshortener.service.ShortUrlServiceInMongo
 import qreol.project.urlshortener.web.dto.url.ShortUrlResponse
 import qreol.project.urlshortener.web.dto.url.UrlRequest
 
 @RestController
 @RequestMapping("/api/v1")
 class ShortUrlController(
+    @Qualifier("shortUrlServiceInMongo")
     private val shortUrlService: ShortUrlService,
     private val urlMapper: UrlMapper
 ) {
